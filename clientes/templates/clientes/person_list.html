@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block title %} Template person_list, para listar utilizando Class Based Views {% endblock %}
+{% block main %}
+    <div class="container">
+        <h1>Template person_list, para listar utilizando Class Based Views</h1>
+        <h2>O Django por padrão sempre injeta uma variável objects_list</h2>
+
+        {% for person in object_list %}
+            <div class="row mb-1">
+                <div class="col-12 col-md-4">
+                    <p><a href="{% url 'update-com-class-based-views' person.id %}">{{ person.first_name }}</a></p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="col">
+                        <a class="btn btn-info" href="{% url 'detailview-com-class-based-views' person.id %}"><i class="fas fa-edit"></i> Visualizar</a>
+                        <a class="btn btn-primary" href="{% url 'update-com-class-based-views' person.id %}"><i class="fas fa-edit"></i> Editar</a>
+                        <a class="btn btn-danger" href="{% url 'delete-com-class-based-views' person.id %}"><i class="fas fa-edit"></i> Excluir</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+        <a class="btn btn-success" href="{% url 'create-com-class-based-views' %}"><i class="fas fa-edit"></i> Novo Cliente</a>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html'  %}
+{% load bootstrap %}
+{% block title %} Página Login para usuários não logados {% endblock %}
+{% block main %}
+    <div class="container">
+        <h1>Página Login para usuários não logados</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+            <button class="btn btn-primary" type="submit"><i class="fas fa-user-check"></i> Entrar</button>
+        </form>
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,12 @@
+{% load minhas_templates_tags %}
+
+<div class="card text-center mt-2 bg-secondary text-white">
+  <div class="card-header">
+        <p>Desenvolvido por Ollyver Ottoboni</p>
+        <p><strong>Hora do Servidor</strong></p>
+        {% hora_atual "%Y-%m-%d %I:%M %p" %}
+
+        <p><strong>Hora do Servidor Recebe Contexto</strong></p>
+        {% hora_atual_recebe_contexto "%Y-%m-%d %I:%M %p" %}
+  </div>
+</div>

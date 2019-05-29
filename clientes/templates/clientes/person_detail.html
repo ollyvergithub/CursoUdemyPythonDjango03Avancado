@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block title %} Template person_list, para listar utilizando Class Based Views {% endblock %}
+{% block main %}
+    <div class="container">
+        <h1>Template person_detail, para detalhe utilizando Class Based Views</h1>
+        <h2>O Django por padrão sempre injeta uma variável objects</h2>
+            <h4>A hora veio do conteúdo injetado</h4>
+        <p><strong>Data e Hora:</strong> {{ now }}</p>
+
+            <p><strong>ID:</strong> {{ object.id }}</p>
+            <p><strong>Primeiro Nome:</strong> {{ object.first_name }}</p>
+            <p><strong>Último Nome:</strong> {{ object.last_name }}</p>
+            <p><strong>Idade:</strong> {{ object.age }}</p>
+            <p><strong>Bio:</strong> {{ object.bio }}</p>
+            <p><strong>Imagem: </strong><a class="btn btn-primary" href="{{ object.photo }}">Link da imagem</a> </p>
+
+    </div>
+{% endblock %}

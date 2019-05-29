@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block title %} Template person_update, para UPDATE utilizando Class Based Views {% endblock %}
+{% block main %}
+    <div class="container">
+        <h1>Template person_update, para UPDATE utilizando Class Based Views</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|bootstrap}}
+            <input type="submit" value="Update">
+        </form>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block title %} Template Clientes Person - Lista os clientes do banco de dados {% endblock %}
+{% block main %}
+    <div class="container">
+        <h1>Template Clientes Person - Lista os clientes do banco de dados</h1>
+
+
+            {% for pessoa in persons %}
+                <div class="row mb-1">
+                    <div class="col-12 col-md-4">
+                        <a href="{% url 'persons_update' pessoa.id %}">{{ pessoa.nome_completo }}</a>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="col">
+                            <a class="btn btn-info" href="{% url 'persons_update' pessoa.id %}"><i class="fas fa-edit"></i> Editar</a>
+                            <a class="btn btn-danger" href="{% url 'persons_delete' pessoa.id %}"><i class="fas fa-trash-alt"></i> Deletar</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+        <a class="btn btn-success" href="{% url 'persons_new' %}"><i class="fas fa-user"></i> Nova Pessoa</a>
+        <a class="btn btn-danger" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Sair</a>
+
+    </div>
+{% endblock %}

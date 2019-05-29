@@ -1,0 +1,17 @@
+{% extends 'base.html'  %}
+{% load bootstrap %}
+{% block title %} Person delet confirm - Confirmação de exclusão de usuário {% endblock %}
+{% block main %}
+    <div class="container">
+        <h1>Person delet confirm - Confirmação de exclusão de usuário</h1>
+        <h2>Tem certeza que deseja deletar a Pessoa Abaixo</h2>
+        <h3>ID: {{ person.id }} |  Nome: {{ person.first_name }} {{ person.last_name }}</h3>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Deletar</button>
+        </form>
+    </div>
+{% endblock %}
+
+

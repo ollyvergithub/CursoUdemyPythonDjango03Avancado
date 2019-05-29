@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block title %} Template person_list, para CRIAR utilizando Class Based Views {% endblock %}
+{% block main %}
+    <div class="container">
+        <h1>Template person_form, para CRIAR utilizando Class Based Views</h1>
+        <h2>O Django por padrão sempre injeta uma variável objects_list</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% comment %}{{ form|bootstrap }}{% endcomment %}
+            {% comment %}{{ form|bootstrap_horizontal:'col-lg-4' }}{% endcomment %}
+            {{ form|bootstrap }}
+            <button type="submit" class="btn btn-primary"><i class="far fa-check-square"></i> Salvar</button>
+        </form>
+
+
+    </div>
+{% endblock %}

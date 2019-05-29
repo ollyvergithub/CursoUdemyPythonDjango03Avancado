@@ -1,0 +1,16 @@
+{% extends 'base.html'  %}
+{% load bootstrap %}
+{% block title %} Person Form - Formulário para criar pessoas {% endblock %}
+{% block main %}
+    <div class="container">
+        <h1>Person Form - Formulário para criar pessoas</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% comment %}{{ form|bootstrap }}{% endcomment %}
+            {% comment %}{{ form|bootstrap_horizontal:'col-lg-4' }}{% endcomment %}
+            {{ form|bootstrap }}
+            <button type="submit" class="btn btn-primary"><i class="far fa-check-square"></i> Salvar</button>
+        </form>
+    </div>
+{% endblock %}
+
