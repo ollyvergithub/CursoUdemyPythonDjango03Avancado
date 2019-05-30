@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Person
 from .models import Documento
 from .models import Venda
-from .models import Produto
+from .models import ItensDoPedido
 
 # Criando Actions Personalizadas para o form admim do Django
 from .actions_personalizadas import criando_actions_personalizadas_nfe_emitida, criando_actions_personalizadas_nfe_nao_emitida
@@ -54,7 +54,7 @@ class PersonAdmin(admin.ModelAdmin):
 # Adicionado filtros por venda e por cpf, por exemplo
 class VendaAdmin(admin.ModelAdmin):
     list_filter = ('pessoa__doc', 'desconto')
-    list_display = ('id', 'pessoa', 'total', 'nfe_emitida')
+    list_display = ('id', 'pessoa', 'nfe_emitida', 'desconto')
 
     # Autocomplete
     autocomplete_fields = ('pessoa',)
@@ -63,7 +63,7 @@ class VendaAdmin(admin.ModelAdmin):
 
     #readonly_fields = ('desconto', )
 
-    filter_horizontal = ['produtos',]
+    # filter_horizontal = ['produtos',]
     #filter_vertical = ['produtos',]
 
     #habilitando o search field
@@ -75,13 +75,13 @@ class VendaAdmin(admin.ModelAdmin):
         criando_actions_personalizadas_nfe_nao_emitida,
     ]
 
+    '''
     def total(self, obj):
         return obj.get_total()
 
     total.short_description = 'Total'
+    '''
 
-class ProdutoAdmin(admin.ModelAdmin):
-    list_display = ('id', 'descricao', 'preco')
 
 # Personalizando o Admin do Django - Passando a classe
 admin.site.register(Person, PersonAdmin)
@@ -89,6 +89,7 @@ admin.site.register(Person, PersonAdmin)
 admin.site.register(Documento)
 # Personalizando o Admin do Django - Passando a classe
 admin.site.register(Venda, VendaAdmin)
-admin.site.register(Produto, ProdutoAdmin)
+
+admin.site.register(ItensDoPedido)
 
 # Register your models here.
